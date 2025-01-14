@@ -105,12 +105,11 @@
 
     <script>
    function changeTitle() {
-  // Get the current stop_id from the <span> element in the .post-item
-  const currentStopElement = document.querySelector('.post-item');
-  const stopId = currentStopElement ? currentStopElement.textContent.trim() : null;
+  // Get the current stop_id directly from the YAML front matter via a data attribute
+  const stopId = '{{ page.stop_id }}'; // Dynamically fetch stop_id from the current page's YAML
 
   // Apply changes only if stop_id equals '1'
-  if (stopId == '1') {
+  if (stopId === '1') {
     // Change the content of the page title to Arabic
     document.getElementById('page-title').innerHTML = 'عنوان';
 
