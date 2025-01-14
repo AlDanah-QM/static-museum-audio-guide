@@ -151,7 +151,10 @@ if (postContent) {
     // Add a new <h3> element
   const newHeading = postContent.querySelector('h3');
   newHeading.textContent = 'مثال على عنوان فرعي إضافي لكل محطة.';
-
+    
+     // Add a right-alignment class to the container
+  postContent.classList.add('align-right');
+    
     console.log(`Changes applied for stop ID ${stopId}`);
   } else {
     console.log(`No changes applied. Current stop ID: ${stopId}`);
