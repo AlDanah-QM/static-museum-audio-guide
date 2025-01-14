@@ -11,7 +11,7 @@
   <button 
     id="toggle-language-btn" 
     style="position: absolute; top: 70px; right: 110px; padding: 10px 10px; font-size: 13px; border: 1px solid #ccc; border-radius: 5px; background-color: #f0f0f0; cursor: pointer; transition: background-color 0.3s ease;" 
-    onclick="changeTitle()"
+    onclick="changeLanguage()"
   >
     AR
   </button>
@@ -104,7 +104,7 @@
     </div>
 
     <script>
-   function changeTitle() {
+   function changeLanguage() {
   // Get the current stop_id directly from the YAML front matter via a data attribute
   const stopId = '{{ page.stop_id }}'; // Dynamically fetch stop_id from the current page's YAML
 
