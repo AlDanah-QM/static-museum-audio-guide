@@ -6,14 +6,14 @@
   <body>
     {% include tagmanager.html %}
     {% include header-episode.html %}
-    
-    <!-- Added button -->
+
+    <!-- Button to change title -->
     <div style="margin: 20px;">
       <button 
         style="padding: 10px 20px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; background-color: #f0f0f0; cursor: pointer; transition: background-color 0.3s ease;" 
-        onclick="showMessage()"
+        onclick="changeTitle()"
       >
-        Click Me
+        Change Title to Arabic
       </button>
     </div>
 
@@ -43,8 +43,9 @@
       <div class="jp-gui jp-interface audio-footer-container" data-role="footer" data-position="fixed" data-tap-toggle="false">
         <div class="audio-player">
 
+          <!-- Page title -->
           <div class="player-now-playing">
-            <p>{{ page.title }}</p>
+            <p id="page-title">{{ page.title }}</p>
           </div>
 
           {% if page.audio_file != null %}
@@ -103,15 +104,9 @@
     </div>
 
     <script>
-      function showMessage() {
-        alert('Button clicked!');
-        // Find all elements with data-section-title attribute
-        const sectionTitles = document.querySelectorAll('[data-section-title]');
-        
-        // Translate each to Arabic
-        sectionTitles.forEach(el => {
-          el.textContent = 'العربية'; // Replace with Arabic text
-        });
+      function changeTitle() {
+        // Change the content of the page title to Arabic
+        document.getElementById('page-title').innerHTML = 'عنوا';
       }
     </script>
 
