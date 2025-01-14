@@ -148,6 +148,9 @@ if (postContent) {
   newParagraph.textContent = 'هذا النص يشير إلى محتوى مخصص لكل محطة.';
   postContent.appendChild(newParagraph);
 }
+    // Add a new <h3> element
+  const newHeading = postContent.querySelector('h3');
+  newHeading.textContent = 'مثال على عنوان فرعي إضافي لكل محطة.';
 
     console.log(`Changes applied for stop ID ${stopId}`);
   } else {
