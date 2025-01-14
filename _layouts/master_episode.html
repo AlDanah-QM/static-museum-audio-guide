@@ -107,7 +107,18 @@
       function changeTitle() {
         // Change the content of the page title to Arabic
         document.getElementById('page-title').innerHTML = 'عنوان';
-        document.getElementById('section-title').innerHTML = 'القسم';
+       // Change the section title
+const sectionTitleElement = document.querySelector('.post-header-section-title');
+if (sectionTitleElement) {
+  sectionTitleElement.innerHTML = 'العنوان الفرعي'; // New Arabic section title
+}
+
+// Change the page title
+const pageTitleElement = document.querySelector('.post-header-title');
+if (pageTitleElement) {
+  pageTitleElement.innerHTML = 'عنوان الصفحة'; // New Arabic page title
+}
+
       }
     </script>
 
