@@ -656,3 +656,10 @@ audio {
     margin: 0 auto;
     display: block;
 }
+
+  @media (max-width: 768px) {
+    button {
+      top: 10%;
+      right: 5%;
+    }
+  }
