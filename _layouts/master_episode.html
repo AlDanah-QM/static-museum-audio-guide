@@ -1,156 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+
   {% include head.html %}
-</head>
-<body>
-  {% include tagmanager.html %}
-  {% include header-episode.html %}
 
-  <div class="slide-menu">
-    <h2>{{ site.menu_heading }}</h2>
-    <ul class="post-list">
-      {% assign pages = site.pages | sort: 'page_rank' %}
-      {% for my_page in pages %}
-        {% if (my_page.section_title_en != null) and my_page.type == 'stop' %}
-          <li>
-            <a class="post-link" href="{{ my_page.url | prepend: site.baseurl }}" style="background-image: url('{{ site.baseurl }}{{ site.headphones_icon_color }}');">
-              <span class="post-item">{{ my_page.stop_id }}</span>
-            </a>
-          </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
-
-  <div class="page-content">
-    <div class="wrapper">
-      {{ content }}
-    </div>
-  </div>
-  
-<div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
-  <div class="jp-gui jp-interface audio-footer-container" data-role="footer" data-position="fixed" data-tap-toggle="false">
-    <div class="audio-player">
-      
-      <div class="player-now-playing">
-        <p id="audio-title-en" style="display: block;">{{ page.title_en }}</p>
-        <p id="audio-title-ar" style="display: none;">{{ page.title_ar }}</p>
-      </div>
-
-      <div id="jquery_jplayer_1" class="jp-jplayer"></div>
-      <div id="episode-element">
-        <!-- Static audio element for initialization -->
-        <audio id="initial-audio">
-          <source src="{{ site.baseurl }}{{ site.audio_path }}{{ page.audio_file_en }}" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-
-      <div class="jp-progress">
-        <div class="jp-seek-bar">
-          <div class="jp-play-bar"></div>
-        </div>
-      </div>
-      
-      <div class="jp-no-solution">
-        <span>Update Required</span>
-        To play audio, be sure to enable JavaScript, and run a browser that supports HTML5 MP3 audio, or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
-      </div>
-
-      <div class="player-buttons">
-        <div class="player-buttons-prev">
-          {% for my_page in site.pages %}
-            {% capture page_rank_lower %}{{ my_page.page_rank | plus: 1 }}{% endcapture %}
-            {% capture existing_page_rank %}{{ page.page_rank | plus: 0 }}{% endcapture %}
-            {% if page_rank_lower == existing_page_rank and my_page.page_rank != null %}
-              <a href="{{ my_page.url | prepend: site.baseurl }}"></a>
-              <span class="player-buttons-prev-number">{{ my_page.stop_id }}</span>
-            {% endif %}
-          {% endfor %}
-        </div>
-
-        {% if page.audio_file_en != null %}
-        <div class="jp-controls" style="display: inline-block; text-align: center;">
-          <button class="jp-play" role="button" tabindex="0" style="display: inline-block;"></button>
-        </div>
-        {% endif %}
-
-        <div class="player-buttons-next">
-          {% for my_page in site.pages %}
-            {% capture page_rank_higher %}{{ my_page.page_rank | minus: 1 }}{% endcapture %}
-            {% capture existing_page_rank %}{{ page.page_rank | plus: 0 }}{% endcapture %}
-            {% if page_rank_higher == existing_page_rank and my_page.page_rank != null %}
-              <a href="{{ my_page.url | prepend: site.baseurl }}"></a>
-              <span class="player-buttons-next-number">{{ my_page.stop_id }}</span>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Initialize with static English audio
-    const defaultAudioPath = "{{ site.baseurl }}{{ site.audio_path }}{{ page.audio_file_en }}";
+  <body>
+    {% include tagmanager.html %}
+    {% include header-episode.html %}
     
-    $("#jquery_jplayer_1").jPlayer({
-      ready: function() {
-        $(this).jPlayer("setMedia", {
-          mp3: defaultAudioPath
-        });
-        // Enable controls after initialization
-        $('.jp-controls').css('pointer-events', 'auto');
-        $('.jp-play').prop('disabled', false);
-      },
-      cssSelectorAncestor: "#jp_container_1",
-      swfPath: "{{ site.baseurl }}/js",
-      supplied: "mp3",
-      useStateClassSkin: true,
-      autoBlur: false,
-      smoothPlayBar: true,
-      keyEnabled: true,
-      remainingDuration: true,
-      toggleDuration: true
-    });
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+      <button id="toggle-lang" onclick="toggleLanguage()">عربي / English</button>
+    </div>
 
-    // Language toggle setup
-    const toggleButton = document.createElement('button');
-    toggleButton.id = 'toggle-language';
-    toggleButton.style = 'background: none; border: none; font-size: 25px; cursor: pointer; margin-left: auto;';
-    toggleButton.title = 'Toggle Language';
-    toggleButton.innerHTML = '🌐';
+    <div class="slide-menu">
+      <h2>{{ site.menu_heading }}</h2>
+      <ul class="post-list">
+        {% assign pages = site.pages | sort: 'page_rank' %}
+        {% for my_page in pages %}
+          {% if (my_page.section_title != null) and my_page.type == 'stop' %}
+            <li>
+              <a class="post-link" href="{{ my_page.url | prepend: site.baseurl }}" style="background-image: url('{{ site.baseurl }}{{ site.headphones_icon_color }}');">
+                <span class="post-item">{{ my_page.stop_id }}</span>
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
 
-    const sectionTitleContainer = document.querySelector('.post-header-section-title');
-    if (sectionTitleContainer) {
-      sectionTitleContainer.appendChild(toggleButton);
-    }
+    <div class="page-content">
+      <div class="wrapper" id="content-wrapper">
+        {{ content }}
+      </div>
+    </div>
 
-    toggleButton.addEventListener('click', function() {
-      const isPlaying = !$("#jquery_jplayer_1").data().jPlayer.status.paused;
-      const currentTime = $("#jquery_jplayer_1").data().jPlayer.status.currentTime;
+    <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+      <div class="jp-gui jp-interface audio-footer-container" data-role="footer" data-position="fixed" data-tap-toggle="false">
+        <div class="audio-player">
+          <div class="player-now-playing">
+            <p id="page-title">
+              {{ page.title }}
+            </p>
+          </div>
 
-      const elementsEn = document.querySelectorAll('[id$="-en"]');
-      const elementsAr = document.querySelectorAll('[id$="-ar"]');
-      const isEnglish = elementsEn[0].style.display !== 'none';
+          {% if page.audio_file != null %}
+          <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+          <div id="episode-element">
+            <audio id="audio-element">
+              <source id="episode-source" src="{{ site.baseurl }}{{ site.audio_path }}{{ page.audio_file }}" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
 
-      elementsEn.forEach(el => el.style.display = isEnglish ? 'none' : 'block');
-      elementsAr.forEach(el => el.style.display = isEnglish ? 'block' : 'none');
+    <script>
+      // JavaScript for language toggle
+      const contentEnglish = {
+        title: "{{ page.title }}",
+        content: `{{ content | escape }}`,
+        audio: "{{ site.baseurl }}{{ site.audio_path }}{{ page.audio_file }}"
+      };
 
-      // Switch audio source
-      $("#jquery_jplayer_1").jPlayer("setMedia", {
-        mp3: isEnglish 
-          ? "{{ site.baseurl }}{{ site.audio_path }}{{ page.audio_file_ar }}"
-          : "{{ site.baseurl }}{{ site.audio_path }}{{ page.audio_file_en }}"
-      });
+      const contentArabic = {
+        title: "مرحبًا بكم في المحطة الأولى في الجولة",
+        content: `ضع هنا النص العربي الكامل لمحتوى الجولة.`,
+        audio: "{{ site.baseurl }}{{ site.audio_path }}/arabic/{{ page.audio_file }}"
+      };
 
-      // Only play if it was playing before
-      if (isPlaying) {
-        $("#jquery_jplayer_1").jPlayer("play", currentTime);
+      function toggleLanguage() {
+        const isEnglish = document.documentElement.lang === "en";
+        document.documentElement.lang = isEnglish ? "ar" : "en";
+
+        document.getElementById("page-title").textContent = isEnglish ? contentArabic.title : contentEnglish.title;
+        document.getElementById("content-wrapper").innerHTML = isEnglish ? contentArabic.content : contentEnglish.content;
+        document.getElementById("episode-source").src = isEnglish ? contentArabic.audio : contentEnglish.audio;
+
+        const audio = document.getElementById("audio-element");
+        audio.load(); // Reload the audio source
       }
-    });
-  });
-</script>
-</body>
+    </script>
+
+  </body>
+
 </html>
