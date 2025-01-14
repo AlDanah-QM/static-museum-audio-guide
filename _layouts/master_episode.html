@@ -118,6 +118,13 @@ const pageTitleElement = document.querySelector('.post-header-title');
 if (pageTitleElement) {
   pageTitleElement.innerHTML = 'عنوان الصفحة'; // New Arabic page title
 }
+         // Change the audio source
+  const audioSource = document.getElementById('episode-source');
+  if (audioSource) {
+    audioSource.src = '{{ site.baseurl }}{{ site.audio_path }}NASA_main_Computers_are_in_Control.mp3'; // Set new audio file path
+    const audioElement = audioSource.parentElement;
+    audioElement.load(); // Reload the audio element to apply the new source
+  }
 
       }
     </script>
