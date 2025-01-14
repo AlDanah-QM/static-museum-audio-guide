@@ -105,29 +105,37 @@
 
     <script>
      function changeTitle() {
-  
-      // Change the content of the page title to Arabic
-      document.getElementById('page-title').innerHTML = 'عنوان';
+  // Get the stop_id from the data attribute
+  const stopId = document.getElementById('page-container').dataset.stopId;
 
-      // Change the section title
-      const sectionTitleElement = document.querySelector('.post-header-section-title');
-      if (sectionTitleElement) {
-        sectionTitleElement.innerHTML = 'العنوان الفرعي'; // New Arabic section title
-      }
+  // Apply changes only if stop_id equals 1
+  if (stopId === '1') {
+    // Change the content of the page title to Arabic
+    document.getElementById('page-title').innerHTML = 'عنوان';
 
-      // Change the page title
-      const pageTitleElement = document.querySelector('.post-header-title');
-      if (pageTitleElement) {
-        pageTitleElement.innerHTML = 'عنوان الصفحة'; // New Arabic page title
-      }
+    // Change the section title
+    const sectionTitleElement = document.querySelector('.post-header-section-title');
+    if (sectionTitleElement) {
+      sectionTitleElement.innerHTML = 'العنوان الفرعي'; // New Arabic section title
+    }
 
-      // Update the audio in the custom player
-      $('#jquery_jplayer_1').jPlayer('setMedia', {
-        mp3: 'https://aldanah-qm.github.io/static-museum-audio-guide/audio/NASA_main_Computers_are_in_Control.mp3'
-      });
+    // Change the page title
+    const pageTitleElement = document.querySelector('.post-header-title');
+    if (pageTitleElement) {
+      pageTitleElement.innerHTML = 'عنوان الصفحة'; // New Arabic page title
+    }
 
- console.log(`Changes applied for stop ID ${stopId}`);    }
-  } 
+    // Update the audio in the custom player
+    $(`#jquery_jplayer_${stopId}`).jPlayer('setMedia', {
+      mp3: 'https://aldanah-qm.github.io/static-museum-audio-guide/audio/NASA_main_Computers_are_in_Control.mp3'
+    });
+
+    console.log(`Changes applied for stop ID ${stopId}`);
+  } else {
+    console.log(`No changes applied. Current stop ID: ${stopId}`);
+  }
+}
+
     </script>
 
   </body>
