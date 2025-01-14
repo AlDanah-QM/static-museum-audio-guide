@@ -9,6 +9,11 @@
     <div class="slide-menu">
   <h2>{{ site.menu_heading }}</h2>
   <ul class="post-list">
+    <button 
+  style="padding: 10px 20px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; background-color: #f0f0f0; cursor: pointer; transition: background-color 0.3s ease;" 
+  onclick="changeLanguage()"
+>Arabic</button>
+
     {% assign pages = site.pages | sort: 'page_rank' %}
     {% for my_page in pages %}{% if (my_page.section_title != null) and my_page.type == 'stop' %}<li>
         <a class="post-link" href="{{ my_page.url | prepend: site.baseurl }}" style="background-image: url('{{ site.baseurl }}{{ site.headphones_icon_color }}');">
