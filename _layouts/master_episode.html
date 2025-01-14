@@ -105,6 +105,13 @@
     <script>
       function showMessage() {
         alert('Button clicked!');
+        // Find all elements with data-section-title attribute
+        const sectionTitles = document.querySelectorAll('[data-section-title]');
+        
+        // Translate each to Arabic
+        sectionTitles.forEach(el => {
+          el.textContent = 'العربية'; // Replace with Arabic text
+        });
       }
     </script>
 
