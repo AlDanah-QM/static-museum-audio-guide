@@ -104,10 +104,12 @@
     </div>
 
     <script>
-      function changeTitle() {
-          const stopElement = document.querySelector('li[data-stop-id="1"]'); // Select element with stop_id = 1
+     function changeTitle() {
+  // Get the stop_id from the data attribute
+  const stopElement = document.querySelector('li[data-stop-id="1"]'); // Select element with stop_id = 1
 
-      const stopId = stopElement.getAttribute('data-stop-id'); // Get the stop_id value
+  if (stopElement) {
+    const stopId = stopElement.getAttribute('data-stop-id'); // Get the stop_id value
 
     // Apply changes only if stop_id equals 1
     if (stopId === '1') {
