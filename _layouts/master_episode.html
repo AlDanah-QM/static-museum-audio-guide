@@ -105,14 +105,7 @@
 
     <script>
      function changeTitle() {
-  // Get the stop_id from the data attribute
-  const stopElement = document.querySelector('li[data-stop-id="1"]'); // Select element with stop_id = 1
-
-  if (stopElement) {
-    const stopId = stopElement.getAttribute('data-stop-id'); // Get the stop_id value
-
-    // Apply changes only if stop_id equals 1
-    if (stopId === '1') {
+  
       // Change the content of the page title to Arabic
       document.getElementById('page-title').innerHTML = 'عنوان';
 
@@ -133,13 +126,8 @@
         mp3: 'https://aldanah-qm.github.io/static-museum-audio-guide/audio/NASA_main_Computers_are_in_Control.mp3'
       });
 
-      console.log('Changes applied for stop ID 1');
-    }
-  } else {
-    console.log('No matching stop ID found.');
-  }
-}
-
+ console.log(`Changes applied for stop ID ${stopId}`);    }
+  } 
     </script>
 
   </body>
