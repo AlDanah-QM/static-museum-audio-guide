@@ -129,15 +129,15 @@
     $('#jquery_jplayer_1').jPlayer('setMedia', {
       mp3: 'https://aldanah-qm.github.io/static-museum-audio-guide/audio/NASA_main_Computers_are_in_Control.mp3'
     });
-  const postContent = document.querySelector('.post-content');
+ const postContent = document.querySelector('.post-content');
 if (postContent) {
+  postContent.classList.add('align-right'); // Add a right-alignment class
   postContent.innerHTML = `
     <p>تم استبدال هذا النص بمحتوى جديد لتوضيح الجولة الصوتية.</p>
     <h2>المتحدث الرئيسي</h2>
     <p>هذا النص يشير إلى محتوى مخصص لكل محطة.</p>
   `;
 }
-
 
     console.log(`Changes applied for stop ID ${stopId}`);
   } else {
