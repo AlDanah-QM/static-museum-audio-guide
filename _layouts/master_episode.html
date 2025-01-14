@@ -105,24 +105,36 @@
 
     <script>
       function changeTitle() {
-        // Change the content of the page title to Arabic
-        document.getElementById('page-title').innerHTML = 'عنوان';
-       // Change the section title
-const sectionTitleElement = document.querySelector('.post-header-section-title');
-if (sectionTitleElement) {
-  sectionTitleElement.innerHTML = 'العنوان الفرعي'; // New Arabic section title
-}
+       // Get the stop_id from the data attribute
+  const stopElement = document.querySelector('li[data-stop-id]');
+  const stopId = stopElement ? stopElement.getAttribute('data-stop-id') : null;
 
-// Change the page title
-const pageTitleElement = document.querySelector('.post-header-title');
-if (pageTitleElement) {
-  pageTitleElement.innerHTML = 'عنوان الصفحة'; // New Arabic page title
-}
- 
-  // Update the audio in the custom player
-  $('#jquery_jplayer_1').jPlayer('setMedia', {
-    mp3: 'https://aldanah-qm.github.io/static-museum-audio-guide/audio/NASA_main_Computers_are_in_Control.mp3'
-  })
+  // Apply changes only if stop_id equals 1
+  if (stopId === '1') {
+    // Change the content of the page title to Arabic
+    document.getElementById('page-title').innerHTML = 'عنوان';
+
+    // Change the section title
+    const sectionTitleElement = document.querySelector('.post-header-section-title');
+    if (sectionTitleElement) {
+      sectionTitleElement.innerHTML = 'العنوان الفرعي'; // New Arabic section title
+    }
+
+    // Change the page title
+    const pageTitleElement = document.querySelector('.post-header-title');
+    if (pageTitleElement) {
+      pageTitleElement.innerHTML = 'عنوان الصفحة'; // New Arabic page title
+    }
+
+    // Update the audio in the custom player
+    $('#jquery_jplayer_1').jPlayer('setMedia', {
+      mp3: 'https://aldanah-qm.github.io/static-museum-audio-guide/audio/NASA_main_Computers_are_in_Control.mp3'
+    });
+
+    console.log('Changes applied for stop ID 1');
+  } else {
+    console.log('Changes not applied. Current stop ID: ' + stopId);
+  }
 }
 
     </script>
