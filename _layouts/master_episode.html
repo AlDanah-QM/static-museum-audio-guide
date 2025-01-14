@@ -118,12 +118,21 @@ const pageTitleElement = document.querySelector('.post-header-title');
 if (pageTitleElement) {
   pageTitleElement.innerHTML = 'عنوان الصفحة'; // New Arabic page title
 }
-  // Change the audio source to the Arabic version
-  const audioSource = document.getElementById('episode-source');
+const audioSource = document.getElementById('episode-source');
   if (audioSource) {
     audioSource.src = '{{ site.baseurl }}/audio/NASA_main_Computers_are_in_Control.mp3'; // Set new Arabic audio file path
     const audioElement = audioSource.parentElement;
     audioElement.load(); // Reload the audio element to apply the new source
+
+    // Log when the new audio is successfully loaded
+    audioElement.addEventListener('loadeddata', function() {
+      console.log('New audio loaded successfully: ' + audioSource.src);
+    });
+
+    // Log if there is an error loading the audio
+    audioElement.addEventListener('error', function() {
+      console.error('Error loading the new audio: ' + audioSource.src);
+    });
   }
 
 
