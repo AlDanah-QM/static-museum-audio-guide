@@ -31,14 +31,6 @@
           {% endif %}
         {% endfor %}
       </ul>
-      <button 
-      id="toggle-language-btn"
-      style="background: none; border: none; font-size: 25px; cursor: pointer; margin-left: auto;" 
-      title="Toggle Language"
-      onclick="changeTitle()"
-    >
-      🌐
-    </button>
     </div>
 
     <div class="page-content">
@@ -46,6 +38,20 @@
         {{ content }}
       </div>
     </div>
+
+    <div class="post-header">
+  <h2 class="post-header-section-title">
+    <button 
+      id="toggle-language-btn"
+      style="background: none; border: none; font-size: 25px; cursor: pointer; margin-left: 10px;" 
+      title="Toggle Language"
+      onclick="changeTitle()"
+    >
+      🌐
+    </button>
+  </h2>
+</div>
+
 
     <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
       <div class="jp-gui jp-interface audio-footer-container" data-role="footer" data-position="fixed" data-tap-toggle="false">
