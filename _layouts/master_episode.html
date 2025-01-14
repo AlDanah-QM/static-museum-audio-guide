@@ -104,11 +104,12 @@
     </div>
 
     <script>
-     function changeTitle() {
-  // Get the stop_id from the data attribute
-  const stopId = document.getElementById('page-container').dataset.stopId;
+   function changeTitle() {
+  // Get the current stop_id from the <span> element in the .post-item
+  const currentStopElement = document.querySelector('.post-item');
+  const stopId = currentStopElement ? currentStopElement.textContent.trim() : null;
 
-  // Apply changes only if stop_id equals 1
+  // Apply changes only if stop_id equals '1'
   if (stopId === '1') {
     // Change the content of the page title to Arabic
     document.getElementById('page-title').innerHTML = 'عنوان';
@@ -135,7 +136,6 @@
     console.log(`No changes applied. Current stop ID: ${stopId}`);
   }
 }
-
     </script>
 
   </body>
