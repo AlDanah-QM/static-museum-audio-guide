@@ -131,6 +131,7 @@
     });
 const postContent = document.querySelector('.post-content');
 if (postContent) {
+  postContent.style.textAlign = 'right'; // Align all text to the right
   // Update the first <p> tag
   const firstParagraph = postContent.querySelector('p');
   if (firstParagraph) {
@@ -152,8 +153,6 @@ if (postContent) {
   const newHeading = postContent.querySelector('h3');
   newHeading.textContent = 'مثال على عنوان فرعي إضافي لكل محطة.';
     
-     // Add a right-alignment class to the container
-  postContent.classList.add('align-right');
     
     console.log(`Changes applied for stop ID ${stopId}`);
   } else {
