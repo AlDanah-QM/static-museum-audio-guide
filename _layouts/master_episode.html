@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
   {% include head.html %}
 
   <body>
     {% include tagmanager.html %}
     {% include header-episode.html %}
-    
+
     <!-- Language Toggle -->
     <div class="language-toggle">
       <button id="toggle-lang" onclick="toggleLanguage()">عربي / English</button>
@@ -57,7 +57,7 @@
     </div>
 
     <script>
-      // JavaScript for language toggle
+      // Content for English and Arabic
       const contentEnglish = {
         title: "{{ page.title }}",
         content: `{{ content | escape }}`,
@@ -66,20 +66,22 @@
 
       const contentArabic = {
         title: "مرحبًا بكم في المحطة الأولى في الجولة",
-        content: `ضع هنا النص العربي الكامل لمحتوى الجولة.`,
-        audio: "{{ site.baseurl }}{{ site.audio_path }}/arabic/{{ page.audio_file }}"
+        content: "ضع هنا النص العربي الكامل لمحتوى الجولة.",
+        audio: "{{ site.baseurl }}/arabic/{{ page.audio_file }}"
       };
 
       function toggleLanguage() {
         const isEnglish = document.documentElement.lang === "en";
         document.documentElement.lang = isEnglish ? "ar" : "en";
 
+        // Update page content
         document.getElementById("page-title").textContent = isEnglish ? contentArabic.title : contentEnglish.title;
         document.getElementById("content-wrapper").innerHTML = isEnglish ? contentArabic.content : contentEnglish.content;
         document.getElementById("episode-source").src = isEnglish ? contentArabic.audio : contentEnglish.audio;
 
+        // Reload audio to apply the new source
         const audio = document.getElementById("audio-element");
-        audio.load(); // Reload the audio source
+        audio.load();
       }
     </script>
 
