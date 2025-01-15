@@ -150,7 +150,8 @@
     });
 const postContent = document.querySelector('.post-content');
 if (postContent) {
-  postContent.style.textAlign = 'right'; // Align all text to the right
+  postContent.style.textAlign = 'justify'; // Justifies the text
+  postContent.style.direction = 'rtl'; // Aligns it to the right
   // Update the first <p> tag
   const firstParagraph = postContent.querySelector('p');
   if (firstParagraph) {
@@ -162,12 +163,6 @@ if (postContent) {
   if (heading) {
     heading.textContent = 'منظور المصورين';
   }
-
-  // Optionally add a new paragraph
-  const newParagraph = document.createElement('p');
-  newParagraph.textContent = 'هذا النص يشير إلى محتوى مخصص لكل محطة.';
-  postContent.appendChild(newParagraph);
-}
     
     // Select the <blockquote> element inside postContent
 const blockquote = postContent.querySelector('blockquote');
