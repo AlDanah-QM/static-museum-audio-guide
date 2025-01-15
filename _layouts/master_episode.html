@@ -104,6 +104,17 @@
     </div>
 
     <script>
+      window.onload = function () {
+  // Create the toggle button
+  const toggleButton = document.createElement('button');
+  toggleButton.id = 'toggle-language';
+  toggleButton.style = 'background: none; border: none; font-size: 25px; cursor: pointer; margin-left: auto;';
+  toggleButton.title = 'Toggle Language';
+  toggleButton.innerHTML = '🌐';
+        toggleButton.onclick = function () {
+    changeLanguage(); // Call your changeTitle function on click
+  };
+      }
    function changeLanguage() {
   // Get the current stop_id directly from the YAML front matter via a data attribute
   const stopId = '{{ page.stop_id }}'; // Dynamically fetch stop_id from the current page's YAML
