@@ -104,7 +104,7 @@
     </div>
 
     <script>
-    const toggleButton = document.createElement('button');
+  const toggleButton = document.createElement('button');
   toggleButton.id = 'toggle-language';
   toggleButton.style = 'background: none; border: none; font-size: 25px; cursor: pointer; margin-left: auto;';
   toggleButton.title = 'Toggle Language';
@@ -122,52 +122,47 @@
   toggleButton.onclick = function () {
     changeLanguage(); // Call changeLanguage function on click
   };
-  
-   function changeLanguage() {
-  // Get the current stop_id directly from the YAML front matter via a data attribute
+      function changeLanguage() {
   const stopId = '{{ page.stop_id }}'; // Dynamically fetch stop_id from the current page's YAML
 
-  // Apply changes only if stop_id equals '1'
   if (stopId === '1') {
-    // Change the content of the page title to Arabic
     document.getElementById('page-title').innerHTML = 'عنوان';
 
-    // Change the section title
     const sectionTitleElement = document.querySelector('.post-header-section-title');
     if (sectionTitleElement) {
       sectionTitleElement.innerHTML = 'العنوان الفرعي'; // New Arabic section title
     }
 
-    // Change the page title
     const pageTitleElement = document.querySelector('.post-header-title');
     if (pageTitleElement) {
       pageTitleElement.innerHTML = 'عنوان الصفحة'; // New Arabic page title
     }
 
-    // Update the audio in the custom player for jquery_jplayer_1
     $('#jquery_jplayer_1').jPlayer('setMedia', {
       mp3: 'https://aldanah-qm.github.io/static-museum-audio-guide/audio/NASA_main_Computers_are_in_Control.mp3'
     });
-const postContent = document.querySelector('.post-content');
-if (postContent) {
-  postContent.style.textAlign = 'right'; // Align all text to the right
-  // Update the first <p> tag
-  const firstParagraph = postContent.querySelector('p');
-  if (firstParagraph) {
-    firstParagraph.textContent = 'تم استبدال هذا النص بمحتوى جديد لتوضيح الجولة الصوتية.';
-  }
 
-  // Update the first <h2> tag
-  const heading = postContent.querySelector('h2');
-  if (heading) {
-    heading.textContent = 'المتحدث الرئيسي';
-  }
+    const postContent = document.querySelector('.post-content');
+    if (postContent) {
+      postContent.style.textAlign = 'right'; // Align all text to the right
 
-    console.log(Changes applied for stop ID ${stopId});
+      const firstParagraph = postContent.querySelector('p');
+      if (firstParagraph) {
+        firstParagraph.textContent = 'تم استبدال هذا النص بمحتوى جديد لتوضيح الجولة الصوتية.';
+      }
+
+      const heading = postContent.querySelector('h2');
+      if (heading) {
+        heading.textContent = 'المتحدث الرئيسي';
+      }
+    }
+
+    console.log(`Changes applied for stop ID ${stopId}`);
   } else {
-    console.log(No changes applied. Current stop ID: ${stopId});
+    console.log(`No changes applied. Current stop ID: ${stopId}`);
   }
 }
+
     </script>
 
   </body>
