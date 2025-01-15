@@ -102,9 +102,8 @@
         </div>
       </div>
     </div>
-
     <script>
-    const toggleButton = document.createElement('button');
+  const toggleButton = document.createElement('button');
   toggleButton.id = 'toggle-language';
   toggleButton.style = 'background: none; border: none; font-size: 25px; cursor: pointer; margin-left: auto;';
   toggleButton.title = 'Toggle Language';
@@ -122,10 +121,13 @@
   toggleButton.onclick = function () {
     changeLanguage(); // Call changeLanguage function on click
   };
-  if (stopId === '1') {
-    // Change the content of the page title to Arabic for stop ID 1
-    document.getElementById('page-title').innerHTML = 'وجوه المغرب: نسيج بصري مدهش';
 
+  // Add your stopId logic here
+  const stopId = '{{ page.stop_id }}'; // Make sure this is properly defined
+
+  if (stopId === '1') {
+    // Apply changes for stop ID 1
+    document.getElementById('page-title').innerHTML = 'وجوه المغرب: نسيج بصري مدهش';
     // Change the section title
     const sectionTitleElement = document.querySelector('.post-header-section-title');
     if (sectionTitleElement) {
@@ -166,27 +168,24 @@
             blockquote.innerHTML = '<p>مرحبًا بكم في "وجوه المغرب: الطبيعة والمجتمع". هنا نغوص في تمازج الطبيعة الخلابة للمغرب مع حيويته المجتمعية، كما التُقطت بعدسات مصورين أيقونيين مثل إيرفينغ بن وهاري غريويارت. إلى جانبهم، يعكس الفنانون المغاربة المعاصرون مثل لالة السعيدي وموس لمباربط تطور السرد الثقافي المغربي. يعمل التصوير الفوتوغرافي كجسر يربط بين الطبيعة والناس، ليخلق شهادة بصرية تثري الذاكرة الجماعية لتاريخ المغرب الغني وتنوعه الثقافي.</p>';
             blockquote.style.fontStyle = 'italic'; // Make the text italic
         }
-    }
-    console.log(`Changes applied for stop ID ${stopId}`);
-} else if (stopId === '2') {
-    // Change the content for stop ID 2
-    document.getElementById('page-title').innerHTML = 'اكتشاف المغرب: رحلة بصرية';
-
+      
+  } else if (stopId === '2') {
+    document.getElementById('page-title').innerHTML = 'وجوه المغرب: نسيج بصري مدهش';
     // Change the section title
     const sectionTitleElement = document.querySelector('.post-header-section-title');
     if (sectionTitleElement) {
-        sectionTitleElement.innerHTML = 'استكشاف'; // New Arabic section title
+        sectionTitleElement.innerHTML = 'مقدمة'; // New Arabic section title
     }
 
     // Change the page title
     const pageTitleElement = document.querySelector('.post-header-title');
     if (pageTitleElement) {
-        pageTitleElement.innerHTML = 'اكتشاف المغرب: رحلة بصرية'; // New Arabic page title
+        pageTitleElement.innerHTML = 'وجوه المغرب: نسيج بصري مدهش'; // New Arabic page title
     }
 
-    // Update the audio in the custom player for stop ID 2
+    // Update the audio in the custom player for stop ID 1
     $('#jquery_jplayer_1').jPlayer('setMedia', {
-        mp3: 'https://aldanah-qm.github.io/static-museum-audio-guide/audio/second stop ar.mp3'
+        mp3: 'https://aldanah-qm.github.io/static-museum-audio-guide/audio/first stop ar.mp3'
     });
 
     const postContent = document.querySelector('.post-content');
@@ -197,28 +196,49 @@
         // Update the first <p> tag
         const firstParagraph = postContent.querySelector('p');
         if (firstParagraph) {
-            firstParagraph.textContent = 'في "اكتشاف المغرب"، نقدم رحلة عبر طبيعة البلاد الرائعة وثقافتها المتنوعة. من خلال عدسات المصورين والفنانين المغاربة، نسافر عبر الزمن لتسليط الضوء على التراث الغني والتطور الثقافي المتواصل.';
+            firstParagraph.textContent = 'يستعرض قسم "وجوه المغرب" التفاعل المذهل بين جمال الطبيعة الساحرة للبلاد ونسيجها الاجتماعي المتنوع. من خلال عدسات مصورين أسطوريين مثل إيرفينغ بن وهاري غريويارت، نسترجع عبق الماضي، بينما تضيف أعمال الفنانين المغاربة المعاصرين مثل لالة السعيدي وموس لمباربط عمقًا حديثًا برؤى إبداعية. هذا المعرض يحتفي بتطور السرد الثقافي المغربي من خلال التصوير الفوتوغرافي، مسلطًا الضوء على مناظره الخلابة ومجتمعاته النابضة بالحياة.';
         }
 
         // Update the first <h2> tag
         const heading = postContent.querySelector('h2');
         if (heading) {
-            heading.textContent = 'رحلة المصورين';
+            heading.textContent = 'منظور المصورين';
         }
 
         // Select and modify the <blockquote> element
         const blockquote = postContent.querySelector('blockquote');
         if (blockquote) {
-            blockquote.innerHTML = '<p>تعكس هذه الصور التنوع الغني للمجتمعات المغربية، وتوثق الجمال الذي يجمع بين الطبيعة والثقافة، مما يجعل التصوير الفوتوغرافي وسيلة لتقريب المسافات الثقافية.</p>';
+            blockquote.innerHTML = '<p>مرحبًا بكم في "وجوه المغرب: الطبيعة والمجتمع". هنا نغوص في تمازج الطبيعة الخلابة للمغرب مع حيويته المجتمعية، كما التُقطت بعدسات مصورين أيقونيين مثل إيرفينغ بن وهاري غريويارت. إلى جانبهم، يعكس الفنانون المغاربة المعاصرون مثل لالة السعيدي وموس لمباربط تطور السرد الثقافي المغربي. يعمل التصوير الفوتوغرافي كجسر يربط بين الطبيعة والناس، ليخلق شهادة بصرية تثري الذاكرة الجماعية لتاريخ المغرب الغني وتنوعه الثقافي.</p>';
             blockquote.style.fontStyle = 'italic'; // Make the text italic
         }
+  } else if (stopId === '3') {
+    // Apply changes for stop ID 3
+    document.getElementById('page-title').innerHTML = 'التاريخ والحداثة: لقاء الثقافات';
+    const sectionTitleElement = document.querySelector('.post-header-section-title');
+    if (sectionTitleElement) {
+      sectionTitleElement.innerHTML = 'التاريخ';
     }
-    console.log(`Changes applied for stop ID ${stopId}`);
-} else {
+    // Additional changes for stop ID 3...
+  } else if (stopId === '4') {
+    // Apply changes for stop ID 4
+    document.getElementById('page-title').innerHTML = 'المغرب من خلال عدسات الزمن';
+    const sectionTitleElement = document.querySelector('.post-header-section-title');
+    if (sectionTitleElement) {
+      sectionTitleElement.innerHTML = 'عدسات الزمن';
+    }
+    // Additional changes for stop ID 4...
+  } else if (stopId === '5') {
+    // Apply changes for stop ID 5
+    document.getElementById('page-title').innerHTML = 'تراث المغرب: الحرفيون والفنون';
+    const sectionTitleElement = document.querySelector('.post-header-section-title');
+    if (sectionTitleElement) {
+      sectionTitleElement.innerHTML = 'التراث والفنون';
+    }
+    // Additional changes for stop ID 5...
+  } else {
     console.log(`No changes applied. Current stop ID: ${stopId}`);
-}
-    </script>
-
+  }
+</script>
   </body>
 
 </html>
