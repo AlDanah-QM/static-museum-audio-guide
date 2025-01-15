@@ -298,20 +298,20 @@
     console.log(`No changes applied. Current stop ID: ${stopId}`);
   }  
          if (stopId === '5') {
-    document.getElementById('page-title').innerHTML = 'العلم وصناعة المخطوطات في المغرب';
+    document.getElementById('page-title').innerHTML = 'رحلة في عالم الموسيقى المغربية';
 
     const sectionTitleElement = document.querySelector('.post-header-section-title');
     if (sectionTitleElement) {
-      sectionTitleElement.innerHTML = 'حماة المعرفة'; // New Arabic section title
+      sectionTitleElement.innerHTML = 'الأصوات التقليدية للمغرب'; // New Arabic section title
     }
 
     const pageTitleElement = document.querySelector('.post-header-title');
     if (pageTitleElement) {
-      pageTitleElement.innerHTML = 'العلم وصناعة المخطوطات في المغرب'; // New Arabic page title
+      pageTitleElement.innerHTML = 'رحلة في عالم الموسيقى المغربية'; // New Arabic page title
     }
 
     $('#jquery_jplayer_1').jPlayer('setMedia', {
-      mp3: 'https://aldanah-qm.github.io/static-museum-audio-guide/audio/fourth stop ar.mp3'
+      mp3: 'https://aldanah-qm.github.io/static-museum-audio-guide/audio/fifth stop ar.mp3'
     });
 
     const postContent = document.querySelector('.post-content');
@@ -321,16 +321,16 @@
 
       const firstParagraph = postContent.querySelector('p');
       if (firstParagraph) {
-        firstParagraph.textContent = 'امتدت إسهامات المغرب العلمية لتشمل الفقه الإسلامي، وعلم الكلام، والعلوم الطبيعية، مع تصدر فاس ومراكش المشهد العلمي. احتضنت مكتبات هاتين المدينتين مخطوطات لا تقدر بثمن، تجسيدًا لالتزام المغرب بحفظ المعرفة. ومن أبرز المعروضات هنا الجزء الأخير من مصحف مكون من 30 مجلدًا، تحفة فنية تعكس روح الإبداع والتفاني التي تميز الإرث الفكري المغربي.';
+        firstParagraph.textContent = 'تمتزج الموسيقى المغربية بطريقة فريدة تجمع بين التأثيرات العربية، الأمازيغية، الأندلسية، المتوسطية، والإفريقية. تُعد الموسيقى الأندلسية، المعروفة بـالآلة، واحدة من أبرز الأنماط الموسيقية في مدن فاس، مكناس، الرباط-سلا، تطوان، وطنجة. لعبت هذه المدن دورًا محوريًا في الحفاظ على هذا الفن وتعزيزه، مما أسهم في إثراء الإرث الموسيقي المغربي. يعكس هذا النسيج الفني تنوع المغرب الثقافي وعمقه، وهو إرث يحتفى به حتى اليوم.';
       }
 
       const heading = postContent.querySelector('h2');
       if (heading) {
-        heading.textContent = 'حراس العلم';
+        heading.textContent = 'أصداء المغرب';
       }
        const blockquote = postContent.querySelector('blockquote');
       if (blockquote) {
-            blockquote.innerHTML = '<p>كانت فاس ومراكش بمثابة مركزين للتميز العلمي، حيث شهدتا تطورات رائدة في الفقه الإسلامي، وعلم الكلام، والعلوم. احتضنت هاتان المدينتان مكتبات ومؤسسات علمية حافظت على الإرث الفكري، وأسهمت في إنتاج مخطوطات مصنوعة بعناية فائقة. ستجد هنا قسمًا رائعًا من مصحف مكون من 30 مجلدًا، شهادة حية على الإرث الفني والعلمي للمغرب في العصور الوسطى. ولا تزال هذه التقاليد العلمية وحفظ المعرفة جزءًا أساسيًا من الهوية المغربية حتى يومنا هذا.</p>';
+            blockquote.innerHTML = '<p>يعكس التراث الموسيقي المغربي تنوع مناطقه، بدءًا من رقصات الرڭادة بالبندقيات في منطقة الريف، مرورًا بـأحواش وأحيدوس في جبال الأطلس، بما في ذلك رقصة الرݣاصات الفريدة. وفي الصحراء، تحافظ الطرق الصوفية على تقاليد عريقة من خلال أنماط مثل ݣناوة، الحسانية، والݣدرة. كما تثري الموسيقى الشعبية الاحتفالات المغربية، مجسدة روحها الثقافية العريقة.</p>';
             blockquote.style.fontStyle = 'italic'; // Make the text italic
         }
 
