@@ -104,14 +104,13 @@
     </div>
 
     <script>
-     window.onload = function () {
-  // Create the toggle button
-  const toggleButton = document.createElement('button');
+    const toggleButton = document.createElement('button');
   toggleButton.id = 'toggle-language';
-  toggleButton.style = 'background: none; border: none; font-size: 25px; cursor: pointer; margin-left: 10px;';
+  toggleButton.style = 'background: none; border: none; font-size: 25px; cursor: pointer; margin-left: auto;';
   toggleButton.title = 'Toggle Language';
   toggleButton.innerHTML = '🌐';
-       const sectionTitleContainer = document.querySelector('.post-header-section-title');
+
+  const sectionTitleContainer = document.querySelector('.post-header-section-title');
   if (sectionTitleContainer) {
     sectionTitleContainer.appendChild(toggleButton);
   } else {
