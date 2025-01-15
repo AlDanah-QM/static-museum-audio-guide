@@ -126,16 +126,16 @@
   const stopId = '{{ page.stop_id }}'; // Dynamically fetch stop_id from the current page's YAML
 
   if (stopId === '1') {
-    document.getElementById('page-title').innerHTML = 'عنوان';
+    document.getElementById('page-title').innerHTML = 'وجوه المغرب: نسيج بصري مدهش';
 
     const sectionTitleElement = document.querySelector('.post-header-section-title');
     if (sectionTitleElement) {
-      sectionTitleElement.innerHTML = 'العنوان الفرعي'; // New Arabic section title
+      sectionTitleElement.innerHTML = 'مقدمة'; // New Arabic section title
     }
 
     const pageTitleElement = document.querySelector('.post-header-title');
     if (pageTitleElement) {
-      pageTitleElement.innerHTML = 'عنوان الصفحة'; // New Arabic page title
+      pageTitleElement.innerHTML = 'وجوه المغرب: نسيج بصري مدهش'; // New Arabic page title
     }
 
     $('#jquery_jplayer_1').jPlayer('setMedia', {
@@ -144,17 +144,24 @@
 
     const postContent = document.querySelector('.post-content');
     if (postContent) {
-      postContent.style.textAlign = 'right'; // Align all text to the right
+        postContent.style.textAlign = 'justify'; // Justifies the text
+        postContent.style.direction = 'rtl'; // Aligns it to the right
 
       const firstParagraph = postContent.querySelector('p');
       if (firstParagraph) {
-        firstParagraph.textContent = 'تم استبدال هذا النص بمحتوى جديد لتوضيح الجولة الصوتية.';
+        firstParagraph.textContent = 'يستعرض قسم "وجوه المغرب" التفاعل المذهل بين جمال الطبيعة الساحرة للبلاد ونسيجها الاجتماعي المتنوع. من خلال عدسات مصورين أسطوريين مثل إيرفينغ بن وهاري غريويارت، نسترجع عبق الماضي، بينما تضيف أعمال الفنانين المغاربة المعاصرين مثل لالة السعيدي وموس لمباربط عمقًا حديثًا برؤى إبداعية. هذا المعرض يحتفي بتطور السرد الثقافي المغربي من خلال التصوير الفوتوغرافي، مسلطًا الضوء على مناظره الخلابة ومجتمعاته النابضة بالحياة.';
       }
 
       const heading = postContent.querySelector('h2');
       if (heading) {
-        heading.textContent = 'المتحدث الرئيسي';
+        heading.textContent = 'منظور المصورين';
       }
+       const blockquote = postContent.querySelector('blockquote');
+      if (blockquote) {
+            blockquote.innerHTML = '<p>مرحبًا بكم في "وجوه المغرب: الطبيعة والمجتمع". هنا نغوص في تمازج الطبيعة الخلابة للمغرب مع حيويته المجتمعية، كما التُقطت بعدسات مصورين أيقونيين مثل إيرفينغ بن وهاري غريويارت. إلى جانبهم، يعكس الفنانون المغاربة المعاصرون مثل لالة السعيدي وموس لمباربط تطور السرد الثقافي المغربي. يعمل التصوير الفوتوغرافي كجسر يربط بين الطبيعة والناس، ليخلق شهادة بصرية تثري الذاكرة الجماعية لتاريخ المغرب الغني وتنوعه الثقافي.</p>';
+            blockquote.style.fontStyle = 'italic'; // Make the text italic
+        }
+
     }
 
     console.log(`Changes applied for stop ID ${stopId}`);
