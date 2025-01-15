@@ -106,6 +106,9 @@ li {
 h1, h2, h3, h4, h5, h6 {
     font-weight: $base-font-weight;
 }
+.post-content p {
+    color: lighten($brand-color, 20%);
+}
 
 
 
@@ -134,7 +137,7 @@ a {
  * Blockquotes
  */
 blockquote {
-    color: darken($brand-color, 20%);
+    color: $brand-color;
      text-align: justify;
     //border-left: 4px solid $grey-color-light;
     //padding-left: $spacing-unit / 2;
