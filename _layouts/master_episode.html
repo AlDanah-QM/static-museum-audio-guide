@@ -212,16 +212,16 @@
     console.log(`No changes applied. Current stop ID: ${stopId}`);
   }
       if (stopId === '3') {
-    document.getElementById('page-title').innerHTML = 'الدين والسلالات الحاكمة';
+    document.getElementById('page-title').innerHTML = 'الإيمان والسلطة في المغرب';
 
     const sectionTitleElement = document.querySelector('.post-header-section-title');
     if (sectionTitleElement) {
-      sectionTitleElement.innerHTML = 'روح المغرب: الملوك والأولياء والعلماء'; // New Arabic section title
+      sectionTitleElement.innerHTML = 'الأضرحة والملوك'; // New Arabic section title
     }
 
     const pageTitleElement = document.querySelector('.post-header-title');
     if (pageTitleElement) {
-      pageTitleElement.innerHTML = 'الدين والسلالات الحاكمة'; // New Arabic page title
+      pageTitleElement.innerHTML = 'الإيمان والسلطة في المغرب'; // New Arabic page title
     }
 
     $('#jquery_jplayer_1').jPlayer('setMedia', {
@@ -235,16 +235,16 @@
 
       const firstParagraph = postContent.querySelector('p');
       if (firstParagraph) {
-        firstParagraph.textContent = 'يسلط هذا القسم الضوء على الجذور الروحية والسياسية للمغرب، المتجذرة في عهد الدولة الإدريسية. لقد شكّلت العلاقة الوثيقة بين الإسلام والسلطة هوية المغرب التاريخية والثقافية، حيث لعبت كل من فاس ومراكش دورًا محوريًا كمراكز للعلم والتقوى. تعكس المعالم المعمارية في هاتين المدينتين، من المساجد إلى المدارس، قرونًا من الازدهار العلمي والروحي، مسطرة بذلك حقبة ذهبية في تاريخ المغرب.';
+        firstParagraph.textContent = 'ظل الإيمان والسلطة متداخلين بعمق في تاريخ المغرب، مشكلين معًا معالمه الدينية والسياسية. تعكس مواقع الدفن الملكية مثل ضريح المولى إدريس الثاني ومقابر السعديين هذا الترابط الفريد. ويُبرز فن هذه المواقع القيم الروحية والسياسية التي اعتنقها حكام المغرب، مسلطًا الضوء على تأثيرهم الدائم على تراث الأمة.';
       }
 
       const heading = postContent.querySelector('h2');
       if (heading) {
-        heading.textContent = 'أصوات الإرث الروحي';
+        heading.textContent = 'رواة السُلطة';
       }
        const blockquote = postContent.querySelector('blockquote');
       if (blockquote) {
-            blockquote.innerHTML = '<p>نغوص هنا في السلالة التاريخية والروحية للمغرب، التي تبدأ بإرث الدولة الإدريسية، أول سلالة إسلامية في المنطقة. تمتد هذه السلالة، التي تشمل الملك الحالي محمد السادس، إلى النبي محمد عبر السيدة فاطمة الزهراء. ازدهرت المراكز الدينية في فاس ومراكش كمحطات أساسية للبحث الروحي والمعرفي، مما رسم ملامح العصر الذهبي للهوية الثقافية المغربية. من المساجد إلى المدارس، تحمل هذه المعالم بين طياتها قرونًا من التفاني والإنجاز العلمي.</p>';
+            blockquote.innerHTML = '<p>يستعرض هذا القسم العلاقة العميقة بين حكام المغرب وإرثه الديني. من ضريح المولى إدريس الثاني في فاس إلى مقابر السعديين في مراكش، تجسد هذه المواقع الجنائزية تلاحم الإيمان والسلطة بشكل متقن. تكشف الحرفية والنقوش التي تزين هذه المعالم عن الأهمية البالغة التي أولاها الحكام للسلطة الدينية والسياسية. كل قطعة فنية هنا تُعد شهادة تاريخية على الإرث الروحي والثقافي الذي ما زال يشكّل ملامح المغرب حتى اليوم.</p>';
             blockquote.style.fontStyle = 'italic'; // Make the text italic
         }
 
