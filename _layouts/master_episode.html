@@ -255,20 +255,20 @@
     console.log(`No changes applied. Current stop ID: ${stopId}`);
   }  
         if (stopId === '4') {
-    document.getElementById('page-title').innerHTML = 'الإيمان والسلطة في المغرب';
+    document.getElementById('page-title').innerHTML = 'العلم وصناعة المخطوطات في المغرب';
 
     const sectionTitleElement = document.querySelector('.post-header-section-title');
     if (sectionTitleElement) {
-      sectionTitleElement.innerHTML = 'الأضرحة والملوك'; // New Arabic section title
+      sectionTitleElement.innerHTML = 'حماة المعرفة'; // New Arabic section title
     }
 
     const pageTitleElement = document.querySelector('.post-header-title');
     if (pageTitleElement) {
-      pageTitleElement.innerHTML = 'الإيمان والسلطة في المغرب'; // New Arabic page title
+      pageTitleElement.innerHTML = 'العلم وصناعة المخطوطات في المغرب'; // New Arabic page title
     }
 
     $('#jquery_jplayer_1').jPlayer('setMedia', {
-      mp3: 'https://aldanah-qm.github.io/static-museum-audio-guide/audio/third stop ar.mp3'
+      mp3: 'https://aldanah-qm.github.io/static-museum-audio-guide/audio/fourth stop ar.mp3'
     });
 
     const postContent = document.querySelector('.post-content');
@@ -278,16 +278,16 @@
 
       const firstParagraph = postContent.querySelector('p');
       if (firstParagraph) {
-        firstParagraph.textContent = 'ظل الإيمان والسلطة متداخلين بعمق في تاريخ المغرب، مشكلين معًا معالمه الدينية والسياسية. تعكس مواقع الدفن الملكية مثل ضريح المولى إدريس الثاني ومقابر السعديين هذا الترابط الفريد. ويُبرز فن هذه المواقع القيم الروحية والسياسية التي اعتنقها حكام المغرب، مسلطًا الضوء على تأثيرهم الدائم على تراث الأمة.';
+        firstParagraph.textContent = 'امتدت إسهامات المغرب العلمية لتشمل الفقه الإسلامي، وعلم الكلام، والعلوم الطبيعية، مع تصدر فاس ومراكش المشهد العلمي. احتضنت مكتبات هاتين المدينتين مخطوطات لا تقدر بثمن، تجسيدًا لالتزام المغرب بحفظ المعرفة. ومن أبرز المعروضات هنا الجزء الأخير من مصحف مكون من 30 مجلدًا، تحفة فنية تعكس روح الإبداع والتفاني التي تميز الإرث الفكري المغربي.';
       }
 
       const heading = postContent.querySelector('h2');
       if (heading) {
-        heading.textContent = 'رواة السُلطة';
+        heading.textContent = 'حراس العلم';
       }
        const blockquote = postContent.querySelector('blockquote');
       if (blockquote) {
-            blockquote.innerHTML = '<p>يستعرض هذا القسم العلاقة العميقة بين حكام المغرب وإرثه الديني. من ضريح المولى إدريس الثاني في فاس إلى مقابر السعديين في مراكش، تجسد هذه المواقع الجنائزية تلاحم الإيمان والسلطة بشكل متقن. تكشف الحرفية والنقوش التي تزين هذه المعالم عن الأهمية البالغة التي أولاها الحكام للسلطة الدينية والسياسية. كل قطعة فنية هنا تُعد شهادة تاريخية على الإرث الروحي والثقافي الذي ما زال يشكّل ملامح المغرب حتى اليوم.</p>';
+            blockquote.innerHTML = '<p>كانت فاس ومراكش بمثابة مركزين للتميز العلمي، حيث شهدتا تطورات رائدة في الفقه الإسلامي، وعلم الكلام، والعلوم. احتضنت هاتان المدينتان مكتبات ومؤسسات علمية حافظت على الإرث الفكري، وأسهمت في إنتاج مخطوطات مصنوعة بعناية فائقة. ستجد هنا قسمًا رائعًا من مصحف مكون من 30 مجلدًا، شهادة حية على الإرث الفني والعلمي للمغرب في العصور الوسطى. ولا تزال هذه التقاليد العلمية وحفظ المعرفة جزءًا أساسيًا من الهوية المغربية حتى يومنا هذا.</p>';
             blockquote.style.fontStyle = 'italic'; // Make the text italic
         }
 
