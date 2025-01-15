@@ -100,6 +100,14 @@
 
       // Toggle language function
       function changeLanguage() {
+        // Get the toggle button element
+    const button = document.getElementById('toggle-language-btn');
+
+    // Ensure the button exists before updating
+    if (!button) {
+      console.error('Toggle language button not found!');
+      return;
+    }
         const stopId = '{{ page.stop_id }}'; // Dynamically fetch stop_id from the current page's YAML
 
         if (currentLanguage === 'EN') {
