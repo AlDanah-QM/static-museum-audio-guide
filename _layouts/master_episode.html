@@ -94,30 +94,20 @@
         </div>
       </div>
     </div>
+ <script>
+      // Initialize language state
+      let currentLanguage = 'EN'; // Default language
 
-    <script>
-  const toggleButton = document.createElement('button');
-  toggleButton.id = 'toggle-language';
-  toggleButton.style = 'background: none; border: none; font-size: 25px; cursor: pointer; margin-left: auto;';
-  toggleButton.title = 'Toggle Language';
-  toggleButton.innerHTML = '🌐';
-
-  const sectionTitleContainer = document.querySelector('.post-header-section-title');
-  if (sectionTitleContainer) {
-    sectionTitleContainer.appendChild(toggleButton);
-  } else {
-    console.error("Element '.post-header-section-title' not found. Appending to '.audio-player' instead.");
-    document.querySelector('.audio-player').appendChild(toggleButton);
-  }
-
-  // Add onclick event
-  toggleButton.onclick = function () {
-    changeLanguage(); // Call changeLanguage function on click
-  };
+      // Toggle language function
       function changeLanguage() {
-  const stopId = '{{ page.stop_id }}'; // Dynamically fetch stop_id from the current page's YAML
+        const stopId = '{{ page.stop_id }}'; // Dynamically fetch stop_id from the current page's YAML
 
-  if (stopId === '1') {
+        if (currentLanguage === 'EN') {
+          // Switch to Arabic
+          currentLanguage = 'AR';
+          document.getElementById('toggle-language').innerHTML = 'EN'; // Update button text to 'EN'
+
+          if (stopId === '1') {
     document.getElementById('page-title').innerHTML = 'وجوه المغرب: نسيج بصري مدهش';
 
     const sectionTitleElement = document.querySelector('.post-header-section-title');
@@ -332,8 +322,51 @@
   } else {
     console.log(`No changes applied. Current stop ID: ${stopId}`);
   } 
-}
 
+          // Add cases for other stop IDs as needed
+        } else {
+          // Switch to English
+          currentLanguage = 'EN';
+          document.getElementById('toggle-language').innerHTML = 'AR'; // Update button text to 'AR'
+          document.getElementById('page-title').innerHTML = '{{ page.title }}';
+          const sectionTitleElement = document.querySelector('.post-header-section-title');
+          if (sectionTitleElement) sectionTitleElement.innerHTML = '{{ page.section_title }}'; // Default YAML
+          const pageTitleElement = document.querySelector('.post-header-title');
+          if (pageTitleElement) pageTitleElement.innerHTML = '{{ page.title }}'; // Default YAML
+          $('#jquery_jplayer_1').jPlayer('setMedia', {
+            mp3: '{{ site.baseurl }}{{ site.audio_path }}{{ page.audio_file }}',
+          });
+          const postContent = document.querySelector('.post-content');
+          if (postContent) {
+            postContent.style.textAlign = ''; // Reset alignment
+            postContent.style.direction = ''; // Reset direction
+            const firstParagraph = postContent.querySelector('p');
+            if (firstParagraph) firstParagraph.textContent = '{{ page.content_paragraph }}'; // Default YAML
+            const heading = postContent.querySelector('h2');
+            if (heading) heading.textContent = '{{ page.heading }}'; // Default YAML
+            const blockquote = postContent.querySelector('blockquote');
+            if (blockquote) {
+              blockquote.innerHTML = '<p>{{ page.blockquote }}</p>'; // Default YAML
+              blockquote.style.fontStyle = ''; // Reset style
+            }
+          }
+        }
+      }
+
+      // Create and add toggle button
+      const toggleButton = document.createElement('button');
+      toggleButton.id = 'toggle-language';
+      toggleButton.style = 'background: none; border: none; font-size: 25px; cursor: pointer; margin-left: auto;';
+      toggleButton.title = 'Toggle Language';
+      toggleButton.innerHTML = 'AR'; // Default to 'AR'
+      const sectionTitleContainer = document.querySelector('.post-header-section-title');
+      if (sectionTitleContainer) {
+        sectionTitleContainer.appendChild(toggleButton);
+      } else {
+        console.error("Element '.post-header-section-title' not found. Appending to '.audio-player' instead.");
+        document.querySelector('.audio-player').appendChild(toggleButton);
+      }
+      toggleButton.onclick = changeLanguage; // Attach event listener
     </script>
 
   </body>
