@@ -95,14 +95,6 @@
       </div>
     </div>
  <script>
-   window.onload = function () {
-        const button = document.createElement('button');
-        button.id = 'toggle-language-btn';
-        button.style = 'position: fixed; top: 10px; right: 10px; padding: 10px; font-size: 16px; cursor: pointer;';
-        button.innerHTML = 'EN'; // Default state shows AR
-        button.addEventListener('click', changeLanguage);
-        document.body.appendChild(button);
-      };
       // Initialize language state
       let currentLanguage = 'EN'; // Default language
 
@@ -360,7 +352,27 @@
           }
         }
       }
-
+// Add the toggle button to a persistent part of the DOM
+  window.onload = function () {
+    // Create the toggle button
+    const button = document.createElement('button');
+    button.id = 'toggle-language-btn';
+    button.style = `
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 1000;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    `;
+    button.innerHTML = 'AR'; // Default to Arabic
+    button.addEventListener('click', changeLanguage); // Add click event
+    document.body.appendChild(button); // Append to the body
+  };
       
     </script>
 
