@@ -104,17 +104,26 @@
     </div>
 
     <script>
-      window.onload = function () {
+     window.onload = function () {
   // Create the toggle button
   const toggleButton = document.createElement('button');
   toggleButton.id = 'toggle-language';
-  toggleButton.style = 'background: none; border: none; font-size: 25px; cursor: pointer; margin-left: auto;';
+  toggleButton.style = 'background: none; border: none; font-size: 25px; cursor: pointer; margin-left: 10px;';
   toggleButton.title = 'Toggle Language';
   toggleButton.innerHTML = '🌐';
-        toggleButton.onclick = function () {
-    changeLanguage(); // Call your changeTitle function on click
+       const sectionTitleContainer = document.querySelector('.post-header-section-title');
+  if (sectionTitleContainer) {
+    sectionTitleContainer.appendChild(toggleButton);
+  } else {
+    console.error("Element '.post-header-section-title' not found. Appending to '.audio-player' instead.");
+    document.querySelector('.audio-player').appendChild(toggleButton);
+  }
+
+  // Add onclick event
+  toggleButton.onclick = function () {
+    changeLanguage(); // Call changeLanguage function on click
   };
-      }
+     }
    function changeLanguage() {
   // Get the current stop_id directly from the YAML front matter via a data attribute
   const stopId = '{{ page.stop_id }}'; // Dynamically fetch stop_id from the current page's YAML
