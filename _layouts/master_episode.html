@@ -211,6 +211,49 @@
   } else {
     console.log(`No changes applied. Current stop ID: ${stopId}`);
   }
+      if (stopId === '3') {
+    document.getElementById('page-title').innerHTML = 'الدين والسلالات الحاكمة';
+
+    const sectionTitleElement = document.querySelector('.post-header-section-title');
+    if (sectionTitleElement) {
+      sectionTitleElement.innerHTML = 'روح المغرب: الملوك والأولياء والعلماء'; // New Arabic section title
+    }
+
+    const pageTitleElement = document.querySelector('.post-header-title');
+    if (pageTitleElement) {
+      pageTitleElement.innerHTML = 'الدين والسلالات الحاكمة'; // New Arabic page title
+    }
+
+    $('#jquery_jplayer_1').jPlayer('setMedia', {
+      mp3: 'https://aldanah-qm.github.io/static-museum-audio-guide/audio/second stop ar 2.mp3'
+    });
+
+    const postContent = document.querySelector('.post-content');
+    if (postContent) {
+        postContent.style.textAlign = 'justify'; // Justifies the text
+        postContent.style.direction = 'rtl'; // Aligns it to the right
+
+      const firstParagraph = postContent.querySelector('p');
+      if (firstParagraph) {
+        firstParagraph.textContent = 'يسلط هذا القسم الضوء على الجذور الروحية والسياسية للمغرب، المتجذرة في عهد الدولة الإدريسية. لقد شكّلت العلاقة الوثيقة بين الإسلام والسلطة هوية المغرب التاريخية والثقافية، حيث لعبت كل من فاس ومراكش دورًا محوريًا كمراكز للعلم والتقوى. تعكس المعالم المعمارية في هاتين المدينتين، من المساجد إلى المدارس، قرونًا من الازدهار العلمي والروحي، مسطرة بذلك حقبة ذهبية في تاريخ المغرب.';
+      }
+
+      const heading = postContent.querySelector('h2');
+      if (heading) {
+        heading.textContent = 'أصوات الإرث الروحي';
+      }
+       const blockquote = postContent.querySelector('blockquote');
+      if (blockquote) {
+            blockquote.innerHTML = '<p>نغوص هنا في السلالة التاريخية والروحية للمغرب، التي تبدأ بإرث الدولة الإدريسية، أول سلالة إسلامية في المنطقة. تمتد هذه السلالة، التي تشمل الملك الحالي محمد السادس، إلى النبي محمد عبر السيدة فاطمة الزهراء. ازدهرت المراكز الدينية في فاس ومراكش كمحطات أساسية للبحث الروحي والمعرفي، مما رسم ملامح العصر الذهبي للهوية الثقافية المغربية. من المساجد إلى المدارس، تحمل هذه المعالم بين طياتها قرونًا من التفاني والإنجاز العلمي.</p>';
+            blockquote.style.fontStyle = 'italic'; // Make the text italic
+        }
+
+    }
+
+    console.log(`Changes applied for stop ID ${stopId}`);
+  } else {
+    console.log(`No changes applied. Current stop ID: ${stopId}`);
+  }  
 }
 
     </script>
