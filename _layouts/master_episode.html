@@ -135,13 +135,13 @@
     // Change the section title
     const sectionTitleElement = document.querySelector('.post-header-section-title');
     if (sectionTitleElement) {
-      sectionTitleElement.innerHTML = 'مقدمة'; // New Arabic section title
+      sectionTitleElement.innerHTML = 'العنوان الفرعي'; // New Arabic section title
     }
 
     // Change the page title
     const pageTitleElement = document.querySelector('.post-header-title');
     if (pageTitleElement) {
-      pageTitleElement.innerHTML = 'وجوه المغرب: نسيج بصري مدهش'; // New Arabic page title
+      pageTitleElement.innerHTML = 'عنوان الصفحة'; // New Arabic page title
     }
 
     // Update the audio in the custom player for jquery_jplayer_1
@@ -150,29 +150,29 @@
     });
 const postContent = document.querySelector('.post-content');
 if (postContent) {
-  postContent.style.textAlign = 'justify'; // Justifies the text
-  postContent.style.direction = 'rtl'; // Aligns it to the right
+  postContent.style.textAlign = 'right'; // Align all text to the right
   // Update the first <p> tag
   const firstParagraph = postContent.querySelector('p');
   if (firstParagraph) {
-    firstParagraph.textContent = 'يستعرض قسم "وجوه المغرب" التفاعل المذهل بين جمال الطبيعة الساحرة للبلاد ونسيجها الاجتماعي المتنوع. من خلال عدسات مصورين أسطوريين مثل إيرفينغ بن وهاري غريويارت، نسترجع عبق الماضي، بينما تضيف أعمال الفنانين المغاربة المعاصرين مثل لالة السعيدي وموس لمباربط عمقًا حديثًا برؤى إبداعية. هذا المعرض يحتفي بتطور السرد الثقافي المغربي من خلال التصوير الفوتوغرافي، مسلطًا الضوء على مناظره الخلابة ومجتمعاته النابضة بالحياة.';
+    firstParagraph.textContent = 'تم استبدال هذا النص بمحتوى جديد لتوضيح الجولة الصوتية.';
   }
 
   // Update the first <h2> tag
   const heading = postContent.querySelector('h2');
   if (heading) {
-    heading.textContent = 'منظور المصورين';
+    heading.textContent = 'المتحدث الرئيسي';
   }
-    
-    // Select the <blockquote> element inside postContent
-const blockquote = postContent.querySelector('blockquote');
 
-if (blockquote) {
-  // Modify the content of <blockquote>
-  blockquote.innerHTML = '<p>مرحبًا بكم في "وجوه المغرب: الطبيعة والمجتمع". هنا نغوص في تمازج الطبيعة الخلابة للمغرب مع حيويته المجتمعية، كما التُقطت بعدسات مصورين أيقونيين مثل إيرفينغ بن وهاري غريويارت. إلى جانبهم، يعكس الفنانون المغاربة المعاصرون مثل لالة السعيدي وموس لمباربط تطور السرد الثقافي المغربي. يعمل التصوير الفوتوغرافي كجسر يربط بين الطبيعة والناس، ليخلق شهادة بصرية تثري الذاكرة الجماعية لتاريخ المغرب الغني وتنوعه الثقافي.</p>';
-  blockquote.style.fontStyle = 'italic'; // Make the text italic
+  // Optionally add a new paragraph
+  const newParagraph = document.createElement('p');
+  newParagraph.textContent = 'هذا النص يشير إلى محتوى مخصص لكل محطة.';
+  postContent.appendChild(newParagraph);
 }
-
+    // Add a new <h3> element
+  const newHeading = postContent.querySelector('h3');
+  newHeading.textContent = 'مثال على عنوان فرعي إضافي لكل محطة.';
+    
+    
     console.log(`Changes applied for stop ID ${stopId}`);
   } else {
     console.log(`No changes applied. Current stop ID: ${stopId}`);
