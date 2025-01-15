@@ -103,8 +103,8 @@
       </div>
     </div>
    
-    <script>
-    const toggleButton = document.createElement('button');
+  <script>
+  const toggleButton = document.createElement('button');
   toggleButton.id = 'toggle-language';
   toggleButton.style = 'background: none; border: none; font-size: 25px; cursor: pointer; margin-left: auto;';
   toggleButton.title = 'Toggle Language';
@@ -122,6 +122,10 @@
   toggleButton.onclick = function () {
     changeLanguage(); // Call changeLanguage function on click
   };
+
+  // Define stopId logic
+  const stopId = '{{ page.stop_id }}'; // Make sure this is properly defined
+
   if (stopId === '1') {
     // Change the content of the page title to Arabic for stop ID 1
     document.getElementById('page-title').innerHTML = 'وجوه المغرب: نسيج بصري مدهش';
@@ -129,50 +133,50 @@
     // Change the section title
     const sectionTitleElement = document.querySelector('.post-header-section-title');
     if (sectionTitleElement) {
-        sectionTitleElement.innerHTML = 'مقدمة'; // New Arabic section title
+      sectionTitleElement.innerHTML = 'مقدمة'; // New Arabic section title
     }
 
     // Change the page title
     const pageTitleElement = document.querySelector('.post-header-title');
     if (pageTitleElement) {
-        pageTitleElement.innerHTML = 'وجوه المغرب: نسيج بصري مدهش'; // New Arabic page title
+      pageTitleElement.innerHTML = 'وجوه المغرب: نسيج بصري مدهش'; // New Arabic page title
     }
 
     // Update the audio in the custom player for stop ID 1
     $('#jquery_jplayer_1').jPlayer('setMedia', {
-        mp3: 'https://aldanah-qm.github.io/static-museum-audio-guide/audio/first stop ar.mp3'
+      mp3: 'https://aldanah-qm.github.io/static-museum-audio-guide/audio/first stop ar.mp3'
     });
 
     const postContent = document.querySelector('.post-content');
     if (postContent) {
-        postContent.style.textAlign = 'justify'; // Justifies the text
-        postContent.style.direction = 'rtl'; // Aligns it to the right
+      postContent.style.textAlign = 'justify'; // Justifies the text
+      postContent.style.direction = 'rtl'; // Aligns it to the right
 
-        // Update the first <p> tag
-        const firstParagraph = postContent.querySelector('p');
-        if (firstParagraph) {
-            firstParagraph.textContent = 'يستعرض قسم "وجوه المغرب" التفاعل المذهل بين جمال الطبيعة الساحرة للبلاد ونسيجها الاجتماعي المتنوع. من خلال عدسات مصورين أسطوريين مثل إيرفينغ بن وهاري غريويارت، نسترجع عبق الماضي، بينما تضيف أعمال الفنانين المغاربة المعاصرين مثل لالة السعيدي وموس لمباربط عمقًا حديثًا برؤى إبداعية. هذا المعرض يحتفي بتطور السرد الثقافي المغربي من خلال التصوير الفوتوغرافي، مسلطًا الضوء على مناظره الخلابة ومجتمعاته النابضة بالحياة.';
-        }
+      // Update the first <p> tag
+      const firstParagraph = postContent.querySelector('p');
+      if (firstParagraph) {
+        firstParagraph.textContent = 'يستعرض قسم "وجوه المغرب" التفاعل المذهل بين جمال الطبيعة الساحرة للبلاد ونسيجها الاجتماعي المتنوع. من خلال عدسات مصورين أسطوريين مثل إيرفينغ بن وهاري غريويارت، نسترجع عبق الماضي، بينما تضيف أعمال الفنانين المغاربة المعاصرين مثل لالة السعيدي وموس لمباربط عمقًا حديثًا برؤى إبداعية. هذا المعرض يحتفي بتطور السرد الثقافي المغربي من خلال التصوير الفوتوغرافي، مسلطًا الضوء على مناظره الخلابة ومجتمعاته النابضة بالحياة.';
+      }
 
-        // Update the first <h2> tag
-        const heading = postContent.querySelector('h2');
-        if (heading) {
-            heading.textContent = 'منظور المصورين';
-        }
+      // Update the first <h2> tag
+      const heading = postContent.querySelector('h2');
+      if (heading) {
+        heading.textContent = 'منظور المصورين';
+      }
 
-        // Select and modify the <blockquote> element
-        const blockquote = postContent.querySelector('blockquote');
-        if (blockquote) {
-            blockquote.innerHTML = '<p>مرحبًا بكم في "وجوه المغرب: الطبيعة والمجتمع". هنا نغوص في تمازج الطبيعة الخلابة للمغرب مع حيويته المجتمعية، كما التُقطت بعدسات مصورين أيقونيين مثل إيرفينغ بن وهاري غريويارت. إلى جانبهم، يعكس الفنانون المغاربة المعاصرون مثل لالة السعيدي وموس لمباربط تطور السرد الثقافي المغربي. يعمل التصوير الفوتوغرافي كجسر يربط بين الطبيعة والناس، ليخلق شهادة بصرية تثري الذاكرة الجماعية لتاريخ المغرب الغني وتنوعه الثقافي.</p>';
-            blockquote.style.fontStyle = 'italic'; // Make the text italic
-        }
+      // Select and modify the <blockquote> element
+      const blockquote = postContent.querySelector('blockquote');
+      if (blockquote) {
+        blockquote.innerHTML = '<p>مرحبًا بكم في "وجوه المغرب: الطبيعة والمجتمع". هنا نغوص في تمازج الطبيعة الخلابة للمغرب مع حيويته المجتمعية، كما التُقطت بعدسات مصورين أيقونيين مثل إيرفينغ بن وهاري غريويارت. إلى جانبهم، يعكس الفنانون المغاربة المعاصرون مثل لالة السعيدي وموس لمباربط تطور السرد الثقافي المغربي. يعمل التصوير الفوتوغرافي كجسر يربط بين الطبيعة والناس، ليخلق شهادة بصرية تثري الذاكرة الجماعية لتاريخ المغرب الغني وتنوعه الثقافي.</p>';
+        blockquote.style.fontStyle = 'italic'; // Make the text italic
+      }
     }
     console.log(`Changes applied for stop ID ${stopId}`);
-} 
-} else {
+  } else {
     console.log(`No changes applied. Current stop ID: ${stopId}`);
-}
-    </script>
+  }
+</script>
+
 
 
   </body>
