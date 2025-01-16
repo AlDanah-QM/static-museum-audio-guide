@@ -113,7 +113,7 @@
         if (currentLanguage === 'EN') {
           // Switch to Arabic
           currentLanguage = 'AR';
-          document.getElementById('toggle-language').innerHTML = 'EN'; // Update button text to 'EN'
+          document.getElementById('toggle-language').innerHTML = 'AR'; // Update button text to 'EN'
 
           if (stopId === '1') {
     document.getElementById('page-title').innerHTML = 'وجوه المغرب: نسيج بصري مدهش';
@@ -335,7 +335,7 @@
         } else {
           // Switch to English
           currentLanguage = 'EN';
-          document.getElementById('toggle-language').innerHTML = 'AR'; // Update button text to 'AR'
+          document.getElementById('toggle-language').innerHTML = 'EN'; // Update button text to 'AR'
           document.getElementById('page-title').innerHTML = '{{ page.title }}';
           const sectionTitleElement = document.querySelector('.post-header-section-title');
           if (sectionTitleElement) sectionTitleElement.innerHTML = '{{ page.section_title }}'; // Default YAML
@@ -346,8 +346,6 @@
           });
           const postContent = document.querySelector('.post-content');
           if (postContent) {
-            postContent.style.textAlign = ''; // Reset alignment
-            postContent.style.direction = ''; // Reset direction
             const firstParagraph = postContent.querySelector('p');
             if (firstParagraph) firstParagraph.textContent = '{{ page.content_paragraph }}'; // Default YAML
             const heading = postContent.querySelector('h2');
@@ -355,7 +353,6 @@
             const blockquote = postContent.querySelector('blockquote');
             if (blockquote) {
               blockquote.innerHTML = '<p>{{ page.blockquote }}</p>'; // Default YAML
-              blockquote.style.fontStyle = ''; // Reset style
             }
           }
         }
