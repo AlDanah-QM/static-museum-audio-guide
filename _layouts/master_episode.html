@@ -373,6 +373,7 @@
       
 // Add the toggle button to a persistent part of the DOM
   window.onload = function () {
+        saveOriginalContent();
     // Create the toggle button
     const button = document.createElement('button');
     button.id = 'toggle-language';
