@@ -97,6 +97,19 @@
  <script>
       // Initialize language state
       let currentLanguage = 'EN'; // Default language
+    let originalParagraphContent = '';
+  let originalHeadingContent = '';
+  let originalBlockquoteContent = '';
+   function saveOriginalContent() {
+    const paragraph = document.querySelector('.post-content p');
+    if (paragraph) originalParagraphContent = paragraph.textContent;
+
+    const heading = document.querySelector('.post-content h2');
+    if (heading) originalHeadingContent = heading.textContent;
+
+    const blockquote = document.querySelector('.post-content blockquote');
+    if (blockquote) originalBlockquoteContent = blockquote.innerHTML;
+  }
 
       // Toggle language function
       function changeLanguage() {
@@ -347,12 +360,13 @@
           const postContent = document.querySelector('.post-content');
           if (postContent) {
             const firstParagraph = postContent.querySelector('p');
-            if (firstParagraph) firstParagraph.textContent = '{{ page.content_paragraph }}'; // Default YAML
-            const heading = postContent.querySelector('h2');
-            if (heading) heading.textContent = '{{ page.heading }}'; // Default YAML
-            const blockquote = postContent.querySelector('blockquote');
-            if (blockquote) {
-              blockquote.innerHTML = '<p>{{ page.blockquote }}</p>'; // Default YAML
+        if (firstParagraph) firstParagraph.textContent = originalParagraphContent; // Restore original English content
+
+        const heading = postContent.querySelector('h2');
+        if (heading) heading.textContent = originalHeadingContent; // Restore original English content
+
+        const blockquote = postContent.querySelector('blockquote');
+        if (blockquote) blockquote.innerHTML = originalBlockquoteContent; // Restore original English content
             }
           }
         }
