@@ -359,13 +359,13 @@
           });
           const postContent = document.querySelector('.post-content');
           if (postContent) {
+             postContent.style.textAlign = 'justify'; // Justifies the text
+        postContent.style.direction = 'ltr'; // Aligns it to the right
             const firstParagraph = postContent.querySelector('p');
         if (firstParagraph) firstParagraph.textContent = originalParagraphContent; // Restore original English content
 
         const heading = postContent.querySelector('h2');
         if (heading) heading.textContent = originalHeadingContent; // Restore original English content
-            heading.style.textAlign = 'left'; // Align to the left
-
         const blockquote = postContent.querySelector('blockquote');
         if (blockquote) blockquote.innerHTML = originalBlockquoteContent; // Restore original English content
             }
