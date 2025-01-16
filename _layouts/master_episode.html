@@ -364,6 +364,7 @@
 
         const heading = postContent.querySelector('h2');
         if (heading) heading.textContent = originalHeadingContent; // Restore original English content
+            heading.style.textAlign = 'left'; // Align to the left
 
         const blockquote = postContent.querySelector('blockquote');
         if (blockquote) blockquote.innerHTML = originalBlockquoteContent; // Restore original English content
